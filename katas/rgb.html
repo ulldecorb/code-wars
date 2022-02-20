@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rgb</title>
+</head>
+<body>
+    <header>
+        <h1>Human readable duration format</h1>
+        <span>5 kyu</span>
+        <a href="../index.html">Back</a>
+    </header>    
+    <pre>
+        <code>
+            function rgb(r, g, b) {
+                let roundDown = (a) => a<0 ? 0 : a; 
+                let roundUp = (a) => a>255 ? 255 : a; 
+                [r,g,b] = [...arguments].map((a) => roundUp(a)).map((a) => roundDown(a));
+                let hex = (a) => a.toString(16).length<2 ? 0 + a.toString(16) : a.toString(16);
+                let lowerCaseHex =  hex(r) + hex(g) + hex(b);
+                let upperCaseHex = lowerCaseHex.split("").map((a) => a.match(/[a-z]/) ? a.toUpperCase() : a).join("");
+                return upperCaseHex;
+            }
+        </code>
+    </pre>
+</body>
+</html>
